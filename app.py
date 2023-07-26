@@ -18,10 +18,14 @@ def predict():
     print(int_features)
     final_features=np.array(int_features)  
     prediction=model.predict(final_features)
+    prediction = str(prediction[0])
+    print(prediction)
+    data = {
+            "prediction" : prediction
+        }
+    return jsonify(data)
     
-    output=prediction
-    
-    return render_template('index.html',prediction_text='Loan eligiblity is {}'.format(output))
+    # return render_template('index.html',prediction_text='Loan eligiblity is {}'.format(output))
 
 
 
